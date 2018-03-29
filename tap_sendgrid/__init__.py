@@ -18,6 +18,7 @@ REQUIRED_CONFIG_KEYS = ["start_date", 'api_key']
 
 
 def check_credentials_are_authorized(ctx):
+    # TODO make this check the scopes associated with the catalog endpoints being synced
     res = authed_get(Scopes.source, Scopes.endpoint, ctx.config)
     scopes = res.json().get('scopes', [])
 
